@@ -31,7 +31,7 @@
 
         zySdk.services.dictionary.setValue(iterationProperty.value, interation)       
 
-      }, 30000)
+      }, 5000)
 
       return 'complete'
     }
