@@ -29,7 +29,7 @@
 
         iteration++
 
-        zySdk.services.dictionary.setValue(iterationProperty.value, interation)       
+        zySdk.services.dictionary.setValue(iterationProperty.value, iteration)       
 
       }, 5000)
 
