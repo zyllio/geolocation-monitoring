@@ -4,13 +4,13 @@
 (function () {
 
   console.log('Plugin MonitorGeolocation started')
+  console.log('MonitorGeolocation: v2')
 
   class MonitorGeolocationAction {
 
     async execute([locationProperty]) {
 
       console.log('execute: MonitorGeolocationAction')
-      console.log('execute: v2')
 
       const position = await zySdk.services.geolocation.getUserPosition()
 
