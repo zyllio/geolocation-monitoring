@@ -4,13 +4,14 @@
 (function () {
 
   console.log('Plugin MonitorGeolocation started')
-  console.log('MonitorGeolocation: v2')
 
   class MonitorGeolocationAction {
 
-    async execute([locationProperty]) {
+    async execute([locationProperty, iterationProperty]) {
 
       console.log('execute: MonitorGeolocationAction')
+
+      let iteration = 0
 
       setInterval(async () => {
 
@@ -25,6 +26,10 @@
         console.log("Set Position", value);
 
         zySdk.services.dictionary.setValue(locationProperty.value, value)
+
+        interation++
+
+        zySdk.services.dictionary.setValue(iterationProperty.value, interation)       
 
       }, 30000)
 
@@ -52,6 +57,13 @@
       tootip: ``,
       default: '',
       main: true,
+      write: true
+    }, {
+      id: 'iteration',
+      name: 'Iteration',
+      type: 'number',
+      tootip: ``,
+      default: '',
       write: true
     }],
     transitions: ['complete']
