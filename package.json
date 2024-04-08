@@ -1,0 +1,17 @@
+{
+  "name": "zyllio-geolocation-monitoring",
+  "version": "1.0.0",
+  "description": "An action that monitors geolocation",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@zyllio/zy-sdk": "latest",
+    "@zyllio/zy-cli": "latest"
+  },
+  "dependencies": {
+  }
+}
