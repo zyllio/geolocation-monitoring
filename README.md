@@ -31,7 +31,7 @@ npm install
 
 # Install
 
-Only meme.js file is to be installed within Zyllio Studio under Designer/Plugins panel
+Only plugin.js file is to be installed within Zyllio Studio under Designer/Plugins panel
 
 # Fork this plugin
 

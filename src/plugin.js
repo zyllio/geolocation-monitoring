@@ -7,31 +7,30 @@
 
   class MonitorGeolocationAction {
 
-    async execute(properties) {
+    async execute([locationProperty]) {
 
       console.log('execute: MonitorGeolocationAction')
+      console.log('execute: v2')
 
-      // const data = await (await fetch('https://api.imgflip.com/get_memes')).json()
+      const position = await zySdk.services.geolocation.getUserPosition()
 
-      // const memes = data.data.memes
+      if (position === null) {
+        return null
+      }
 
-      // const random = parseInt(Math.random() * 100)
+      const value = `${position[0]},${position[1]}`
 
-      // const meme = memes[random]
+      zySdk.services.dictionary.setValue(locationProperty.value, value)
 
-      // const propertyValue = properties[0].value
-
-      // zySdk.services.dictionary.setValue(propertyValue, meme.url)
-
-      return true
+      return 'complete'
     }
   }
 
   const zyMonitorGeolocationAction = new MonitorGeolocationAction()
 
   const IconData = `
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24" fill="#cccccc">    
-    <path d="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z" />
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24" fill="#cccccc">
+    <path d="M11.5 9C11.5 7.62 12.62 6.5 14 6.5C15.1 6.5 16.03 7.21 16.37 8.19C16.45 8.45 16.5 8.72 16.5 9C16.5 10.38 15.38 11.5 14 11.5C12.91 11.5 12 10.81 11.64 9.84C11.55 9.58 11.5 9.29 11.5 9M5 9C5 13.5 10.08 19.66 11 20.81L10 22C10 22 3 14.25 3 9C3 5.83 5.11 3.15 8 2.29C6.16 3.94 5 6.33 5 9M14 2C17.86 2 21 5.13 21 9C21 14.25 14 22 14 22C14 22 7 14.25 7 9C7 5.13 10.14 2 14 2M14 4C11.24 4 9 6.24 9 9C9 10 9 12 14 18.71C19 12 19 10 19 9C19 6.24 16.76 4 14 4Z" />
   </svg>
 `;
 
