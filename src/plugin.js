@@ -12,15 +12,19 @@
 
       console.log('execute: MonitorGeolocationAction')
 
-      const position = await zySdk.services.geolocation.getUserPosition()
+      setInterval( async () => {
 
-      if (position === null) {
-        return null
-      }
+        const position = await zySdk.services.geolocation.getUserPosition()
+  
+        if (position === null) {
+          return null
+        }
+  
+        const value = `${position[0]},${position[1]}`
+  
+        zySdk.services.dictionary.setValue(locationProperty.value, value)
 
-      const value = `${position[0]},${position[1]}`
-
-      zySdk.services.dictionary.setValue(locationProperty.value, value)
+      }, 30000)
 
       return 'complete'
     }
