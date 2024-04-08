@@ -27,7 +27,7 @@
 
         zySdk.services.dictionary.setValue(locationProperty.value, value)
 
-        interation++
+        iteration++
 
         zySdk.services.dictionary.setValue(iterationProperty.value, interation)       
 
@@ -49,7 +49,7 @@
     id: 'monotor-geolocation',
     icon: IconData,
     label: 'Monitor Geolocation',
-    category: '',
+    category: 'Plugins',
     properties: [{
       id: 'location',
       name: 'Location',
